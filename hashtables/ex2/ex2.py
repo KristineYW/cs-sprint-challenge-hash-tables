@@ -6,9 +6,18 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    # need to get from source "NONE" to the destination "NONE"
+    
+    ht = {}
+
+    for element in tickets:
+        ht[element.source] = element.destination
+    
+    current = ht["NONE"] # starting point
+    route = [current]
+
+    while current != "NONE":
+        current = ht[current]
+        route.append(current)
 
     return route

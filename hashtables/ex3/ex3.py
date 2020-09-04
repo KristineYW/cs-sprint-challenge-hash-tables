@@ -1,8 +1,28 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+
+    ht = {}
+
+    for subarray in arrays:
+        for element in subarray:
+            if element not in ht:
+                ht[element] = 0
+            # else: <-- why doesn't this work???
+            if element in ht:    
+                ht[element] += 1
+    
+    result = []
+
+    # for key in ht:
+    #     if ht[key] == len(arrays):
+    #         result += ht[key]
+
+    # for key in ht:
+    #     if ht.get(key) == len(arrays):
+    #         result += ht[key]   
+
+    for key, value in ht.items():
+        if value == len(arrays):
+            result.append(key)
 
     return result
 
